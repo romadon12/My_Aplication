@@ -47,8 +47,11 @@ public class InputData extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     boolean isUpdated = dbmaster.updateData(id, ednama.getText().toString(), Integer.parseInt(edumur.getText().toString()),edmotto.getText().toString());
-                    if (isUpdated)
+                    if (isUpdated){
                         Toast.makeText(InputData.this, "Data Updated", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(InputData.this, MainActivity.class);
+                        startActivity(intent);
+                    }
                     else
                         Toast.makeText(InputData.this, "Data Not Updated", Toast.LENGTH_LONG).show();
                 }
@@ -58,8 +61,11 @@ public class InputData extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     boolean isInserted = dbmaster.insertData(ednama.getText().toString(), Integer.parseInt(edumur.getText().toString()),edmotto.getText().toString());
-                    if (isInserted)
+                    if (isInserted){
                         Toast.makeText(InputData.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(InputData.this, MainActivity.class);
+                        startActivity(intent);
+                    }
                     else
                         Toast.makeText(InputData.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
                 }
